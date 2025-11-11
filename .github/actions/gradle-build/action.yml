@@ -21,7 +21,7 @@ runs:
       shell: bash
       working-directory: .
       run: |
-        sed -i "s#PROFILE#${{ inputs.profile_name }}#g" app_start.sh
+        sed -i "s#PROFILE_NAME=PROFILE#PROFILE_NAME=${{ inputs.profile_name }}#" app_start.sh
 
     - name: Make script executable
       shell: bash
