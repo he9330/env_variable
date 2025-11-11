@@ -31,7 +31,7 @@ runs:
       shell: bash
       run: ./app_start.sh
   
-  - name: Set PROFILE_NAME environment variable
+    - name: Set PROFILE_NAME environment variable
       shell: bash
       run: echo "PROFILE_NAME=${{ inputs.profile_name }}" >> $GITHUB_ENV
 
