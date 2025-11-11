@@ -12,11 +12,11 @@ on:
           - stage
           - prod
         required: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environmet_name }}
-    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
