@@ -21,7 +21,9 @@ runs:
         sed -i "s#PROFILE#${{ inputs.profile_name }}#g" app_start.sh
 
     - name: Make script executable
+      shell: bash
       run: chmod +x app_start.sh
 
     - name: Run the app
+      shell: bash
       run: ./app_start.sh
