@@ -1,5 +1,5 @@
-name: Gradle Build
-description: Build and run Gradle app with environment profile
+name: "Gradle Build"
+description: "Build project using Gradle"
 inputs:
   profile_name:
     description: "Profile name for environment"
@@ -15,6 +15,8 @@ runs:
         distribution: 'temurin'
 
     - name: Replace PROFILE with actual profile name
+      shell: bash
+      working-directory: .
       run: |
         sed -i "s#PROFILE#${{ inputs.profile_name }}#g" app_start.sh
 
