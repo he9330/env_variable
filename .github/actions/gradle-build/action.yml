@@ -30,6 +30,11 @@ runs:
     - name: Run the app
       shell: bash
       run: ./app_start.sh
+  
+  - name: Set PROFILE_NAME environment variable
+      shell: bash
+      run: echo "PROFILE_NAME=${{ inputs.profile_name }}" >> $GITHUB_ENV
+
 
     - name: Run the app
       shell: bash
