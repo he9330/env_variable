@@ -1,0 +1,27 @@
+name: Build and Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      environment_name:
+        description: 'enter the environment'
+        type: choice
+        options:
+          - dev
+          - qa
+          - stage
+          - prod
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environmet_name }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build using Gradle
+        uses: ./.github/actions/gradle-build
+        with:
+          profile_name: ${{ vars.PROFILE }}

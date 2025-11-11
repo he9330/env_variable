@@ -1,0 +1,25 @@
+name: Gradle Build
+description: Build and run Gradle app with environment profile
+inputs:
+  profile_name:
+    description: "Profile name for environment"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Replace PROFILE with actual profile name
+      run: |
+        sed -i "s#PROFILE#${{ inputs.profile_name }}#g" app_start.sh
+
+    - name: Make script executable
+      run: chmod +x app_start.sh
+
+    - name: Run the app
+      run: ./app_start.sh
