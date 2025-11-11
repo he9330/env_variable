@@ -9,4 +9,4 @@ echo "-------------------------------------------"
 export PROFILE_NAME=PROFILE
 
 echo "Using profile: $PROFILE_NAME"
-./gradlew run
+gradle run
